@@ -24,9 +24,9 @@ function displayTasks() {
   ul.innerHTML = '';
   const activities = loadDataLocalStorage();
 
-  for (let i = 0; i < activities.length; i++) {
+    activities.forEach((activity, i) => {
     const li = document.createElement('li');
-    const checkIn = checked(activities, i);
+    const checkIn = checked(activities, activity.index);
 
     li.innerHTML = `<li class="border p-3 d-flex justify-content-between" id="${i}">
     <div class="d-inline">
@@ -83,7 +83,7 @@ function displayTasks() {
       saveDataLocalStorage(data);
       displayTasks();
     });
-  }
+  });
 }
 
 const addNewDescription = document.getElementById('addNewDescription');
